@@ -1,0 +1,9 @@
+For January13: 1) You will be given a pdf file to know how to use icons in bootstrap. 
+
+2) add a Cart icon on top right like you see in amazon.in using bootstrap icons 
+
+3) on clicking of that icon you have to show a page where you can show all items in the cart. 
+That you can get from the local storage. 
+You will have to show each product along with name and price in the page. 
+You need to show 1 product in one row. You have to also show a div where you 
+have to show the total cart price wihch is the sum of price of all products added. 

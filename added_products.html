@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <title>Your Cart</title>
+    <style>
+        body{
+            font-family: "Times New Roman", Times, serif;
+            background: linear-gradient(90deg, cyan, white);
+        }
+        .row{
+            border: 10px solid blue;
+            margin: auto;
+            width: 83%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        p{
+            font-weight: bold;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container border bg-info mt-1 mb-1 parentdiv text-center">
+        <h1 class="text-center">Your products</h1>
+        <button onclick="addDiv()" class="btn btn-primary">View my cart</button>
+        <div>
+            <h1 id="totalsumid" class="text-center"></h1>
+        </div>
+    </div>
+
+
+    <script>
+        let totalSUM = 0;
+        let container = document.querySelector(".container");
+        function addDiv(){
+            let prev_data_string = localStorage.getItem("Data");
+            let parsed_arrays = JSON.parse(prev_data_string);
+            for (eachkey in parsed_arrays){
+                console.log(parsed_arrays[eachkey]['name'], parsed_arrays[eachkey]['price'] );
+                let newDiv = document.createElement("div");
+                let p = document.createElement("p");
+                p.textContent = "Name : "+parsed_arrays[eachkey]['name']+", Price : "+parsed_arrays[eachkey]['price']
+                let currentsumvar = Number(parsed_arrays[eachkey]['price'])
+                totalSUM+=currentsumvar
+                newDiv.appendChild(p);
+                container.appendChild(newDiv);
+            }
+            document.getElementById("totalsumid").textContent = "Total Sum : " + totalSUM;
+        }
+
+    </script>
+</body>
+</html>
